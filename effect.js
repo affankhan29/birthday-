@@ -229,5 +229,15 @@ music.pause();
 	
 });
 
+const video = document.getElementById('birthday-video');
+
+// Listen for fullscreen change
+document.addEventListener('fullscreenchange', () => {
+  if (document.fullscreenElement) {
+    console.log('Video is in fullscreen mode.');
+    // Optionally, you can reload here if needed
+    location.reload();
+  }
+});
 
 //alert('hello');
