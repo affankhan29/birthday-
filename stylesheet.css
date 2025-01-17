@@ -12,7 +12,19 @@ body {
 	display: none;
 }
 
-
+video::-webkit-media-controls-fullscreen-button {
+	display: none; /* Hide the fullscreen button in Webkit browsers */
+}
+video::-moz-fullscreen-button {
+	display: none; /* Hide the fullscreen button in Firefox */
+}
+video::-ms-fullscreen-button {
+	display: none; /* Hide the fullscreen button in Edge */
+}
+video::-webkit-media-controls-enclosure {
+	display: flex;
+	justify-content: space-between; /* Adjust controls layout if needed */
+}
 .peach {
 	background-color: #FFDAB9;
 	
