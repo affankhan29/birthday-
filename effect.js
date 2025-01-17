@@ -229,21 +229,12 @@ music.pause();
 	
 });
 
-const video = document.getElementById('birthday-video');
-let fullscreenClickCount = 0;
 
-// Listen for fullscreen change
-document.addEventListener('fullscreenchange', () => {
-  if (document.fullscreenElement) {
-    // Increment counter when fullscreen mode is entered
-    fullscreenClickCount++;
+// Push a dummy state to track back button press
+history.pushState(null, null, location.href);
 
-    // Reload the page if it's the second fullscreen click
-    if (fullscreenClickCount === 2) {
-      location.reload();
-    }
-  } else {
-    // Reset the counter when exiting fullscreen
-    fullscreenClickCount = 0;
-  }
+// Detect back button press using popstate event
+window.addEventListener('popstate', () => {
+  // Reload the page when the back button is pressed
+  location.reload();
 });
