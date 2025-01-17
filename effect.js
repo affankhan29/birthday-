@@ -230,14 +230,20 @@ music.pause();
 });
 
 const video = document.getElementById('birthday-video');
+let fullscreenClickCount = 0;
 
 // Listen for fullscreen change
 document.addEventListener('fullscreenchange', () => {
   if (document.fullscreenElement) {
-    console.log('Video is in fullscreen mode.');
-    // Optionally, you can reload here if needed
-    location.reload();
+    // Increment counter when fullscreen mode is entered
+    fullscreenClickCount++;
+
+    // Reload the page if it's the second fullscreen click
+    if (fullscreenClickCount === 2) {
+      location.reload();
+    }
+  } else {
+    // Reset the counter when exiting fullscreen
+    fullscreenClickCount = 0;
   }
 });
-
-//alert('hello');
